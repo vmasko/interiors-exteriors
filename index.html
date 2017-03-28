@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Interiors / Exteriors | Main</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+  </script>
+  <script>
+    $(document).ready(function() {
+      var input = $('[data-animate-label]');
+      var minifiedStyle = {
+        'top':        '2px',
+        'font-size':  '16px',
+        'color':      '#5D5D5D'
+      };
+      var defaultStyle = {
+        'top':        '8px',
+        'font-size':  '32px',
+        'color':      'rgba(150,150,150,0.50)'
+      };
+      $(input).focusin(function() {
+        var labelName = $(this).attr('name');
+        var label = $('.input-' + labelName);
+        $(label).css(minifiedStyle);
+      })
+
+      $(input).focusout(function() {
+        var labelName = $(this).attr('name');
+        var label = $('.input-' + labelName);
+        if ($(this).val() === '') { $(label).css(defaultStyle) }
+      })
+    });
+  </script>
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class='container'>
+    <input class="input" name="email" data-animate-label>
+    <div class="input-label input-email">Username</div>
+  </div>
+</body>
+</html>
